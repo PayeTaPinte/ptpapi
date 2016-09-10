@@ -10,8 +10,6 @@ gem 'json'
 gem 'spring', :group => :development
 gem "pry", :group => :development
 
-gem 'rails_12factor', group: :production
-
 gem 'pg'
 gem 'active_model_serializers'
 gem 'active_skin'
