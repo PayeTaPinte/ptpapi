@@ -24,5 +24,7 @@ module Payetonapi
     # add encrypted cookies. It requires for the authentication with devise.
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+
+    config.assets.initialize_on_precompile = false
   end
 end
