@@ -2,6 +2,7 @@ namespace :bars do
   task inport_bars_from_json: :environment do
   	file = File.read('bars.json')
   	bars_hashed = JSON.parse(file)
+    Bar.destroy_all
 
   	bars_hashed.map do |bar|
       Bar.create(
@@ -18,6 +19,8 @@ namespace :bars do
                       "babyfoot" => bar['activities']['babyfoot'] },
         price: bar['price']
       )
+      sleep 1
+      puts Bar.last.formatted_address
     end
   end
 

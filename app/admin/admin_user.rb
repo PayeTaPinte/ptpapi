@@ -1,5 +1,15 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
+  actions :all, :except => [:destroy]
+
+  member_action :custom_delete, method: :post do
+    resource.destroy!
+    redirect_to bistrot_admin_users_path
+  end
+
+  action_item :custom_delete, only: [:show] do
+    link_to 'Delete', custom_delete_bistrot_admin_user_path(resource), method: :post
+  end
 
   index do
     selectable_column

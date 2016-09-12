@@ -17,7 +17,9 @@ ActiveAdmin.register Bar do
   end
 
   index do
-    column :name
+    column 'Name' do |bar|
+      link_to bar.name, bistrot_bar_path(bar)
+    end
     column :formatted_address
     column :price
     column :isCb
