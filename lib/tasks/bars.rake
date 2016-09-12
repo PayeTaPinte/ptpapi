@@ -1,6 +1,6 @@
 namespace :bars do
   task inport_bars_from_json: :environment do
-  	file = File.read('../bars.json')
+  	file = File.read('bars.json')
   	bars_hashed = JSON.parse(file)
 
   	bars_hashed.map do |bar|
