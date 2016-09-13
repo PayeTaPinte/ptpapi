@@ -11,4 +11,8 @@ class Bar < ActiveRecord::Base
   end
 
   after_validation :geocode
+
+  def lat_lng_id
+    [latitude, longitude, id]
+  end
 end
